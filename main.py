@@ -19,8 +19,8 @@ def exe(data: bytes, method: Callable) -> bytes:
 def main(*argv) -> int:
     parser = argparse.ArgumentParser(prog='Nested Cipher', description='Simple Cipher Use UrlSafe Base 64')
 
+    parser.add_argument('input', type=str, help='Input Data or File')
     parser.add_argument('--time', '-t', default=False, action='store_true', help='Processing Time Active')
-    parser.add_argument('--input', '-i', type=str, required = True, help='Input Data or File')
     parser.add_argument('--mode', '-m', default='en', choices=['en', 'de', 'encode', 'decode'], help='Decode Active')
     parser.add_argument('--type', '-T', default='t', choices=['t', 'f'], help='Input Data Type')
     parser.add_argument('--out', '-O', type=str, help='Out Result File')
