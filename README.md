@@ -57,5 +57,55 @@ pip install nested_cipher
 > > **--method, -M :** Select Method. Choose **_methods_**   **default :** 'mb64'
 
 ---
+
+## Use Application
+
+## Example
+
+**Base 64 URL SAFE**
+
+> **Encode :**
+>
+> ```bash
+> > py main.py Test -M b64
+> ```
+>
+> ```bash
+> b'VGVzdA=='
+> ```
+>
+> 
+
+> **Decode :**
+>
+> ```bash
+> > py main.py VGVzdA== -M b64 -m de
+> ```
+>
+> ```bash
+> b'Test'
+> ```
+
+
+
+**File To Base 64 URL SAFE**
+
+> **Encode :**
+>
+> ```bash
+> > py main.py ./test.t -M b64 -T f -O ./test.txt
+> ```
+
+> **Decode :**
+>
+> ```bash
+> > py main.py ./test.txt -m de -M b64 -T f -O ./test.t
+> ```
+>
+> 
+
+---
+
 author: **Tooraj Jahangiri**
-version: **0.1**
+version: **0.2**
+
