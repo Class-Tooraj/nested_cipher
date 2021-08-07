@@ -3,6 +3,9 @@ __author__ = "ToorajJahangiri"
 __email__ = "Toorajjahangiri@gmail.com"
 ###########################################
 
+"""
+Application Nested Cipher
+"""
 # IMPORTS
 import os
 import sys
@@ -11,14 +14,19 @@ import argparse
 from typing import Callable
 from nested_cipher import *
 
+# ALL METHOD CIPHER SUPPORT
 __methods = ('b64','ab64','mb64','eb64','lb64','rb64','rab64','rmb64','reb64','rlb64')
 
+# EXECUTE COMMAND
 def exe(data: bytes, method: Callable) -> bytes:
     return method(data)
 
+# MAIN APPLICATION RUN
 def main(*argv) -> int:
+    # CREATE PARSER
     parser = argparse.ArgumentParser(prog='Nested Cipher', description='Simple Cipher Use UrlSafe Base 64')
 
+    # ADD COMMAND & OPTIONS
     parser.add_argument('input', type=str, help='Input Data or File')
     parser.add_argument('--time', '-t', default=False, action='store_true', help='Processing Time Active')
     parser.add_argument('--mode', '-m', default='en', choices=['en', 'de', 'encode', 'decode'], help='Decode Active')
@@ -26,6 +34,7 @@ def main(*argv) -> int:
     parser.add_argument('--out', '-O', type=str, help='Out Result File')
     parser.add_argument('--method', '-M', default='mb64', choices=[*__methods], help='Select Mode')
 
+    # GET COMMAND & OPTIONS
     arguments = parser.parse_args()
 
 
