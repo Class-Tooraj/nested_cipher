@@ -16,10 +16,33 @@ Nested Cipher b64:
 
 # IMPORTS
 from base64 import urlsafe_b64encode, urlsafe_b64decode
+from typing import Union
 
-b64_encode = urlsafe_b64encode
-b64_decode = urlsafe_b64decode
+# BASE 64 URL SAFE ENCODER
+def b64_encode(data: bytes) -> bytes:
+    """[Base64 urlsafe Standard Encoder]
 
+    Args:
+        data (bytes): [Input Data]
+
+    Returns:
+        bytes: [Base64 urlsafe Encoded data]
+    """
+    return urlsafe_b64encode(data)
+
+# BASE 64 URL SAFE ENCODER
+def b64_decode(data: Union[str, bytes]) -> bytes:
+    """[Base64 urlsafe Standard Decoder]
+
+    Args:
+        data (Union[str, bytes]): [Input Base64 Encoded Data]
+
+    Returns:
+        bytes: [Decoded Data]
+    """
+    return urlsafe_b64decode(data)
+
+# --- ~ --- #
 
 # ALL BASE 64 ENCODER
 def ab64_encode(data: bytes) -> bytes:
