@@ -60,7 +60,7 @@ def main(*argv) -> int:
     t1 = time.perf_counter_ns()
 
     if not out:
-        print(results)
+        print(results.decode('utf-8'))
     else:
         with open(out, 'wb') as of:
             of.write(results)
