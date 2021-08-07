@@ -58,9 +58,41 @@ pip install nested_cipher
 
 ---
 
+## nested_cipher  Library
+
+**Example**
+
+> **Import :**
+>
+> ```python
+> import nested_cipher
+> ```
+>
+> **or**
+>
+> ```python
+> from nested_cipher import b64_encode, b64_decode
+> ```
+
+> **Encode :**
+>
+> ```python
+> data = 'T3STSTR!NG'.encode('utf-8')
+> b64_cipher = b64_encode(data)
+> ```
+
+> **Decode :**
+>
+> ```python
+> data = 'VDNTVFNUUiFORw=='.encode('utf-8')
+> decode_data = b64_decode(data)
+> ```
+
+---
+
 ## Use Application
 
-## Example
+[nested_cipher]: https://github.com/Class-Tooraj/nested_cipher	"nested_cipher in git hub"
 
 **Base 64 URL SAFE**
 
@@ -107,5 +139,5 @@ pip install nested_cipher
 ---
 
 author: **Tooraj Jahangiri**
-version: **0.2**
+version: **0.3**
 
