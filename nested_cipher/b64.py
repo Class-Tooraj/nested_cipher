@@ -1,7 +1,10 @@
-###########################################
-__author__ = "ToorajJahangiri"
-__email__ = "Toorajjahangiri@gmail.com"
-###########################################
+from __future__ import annotations
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+#           < IN THE NAME OF GOD >           #
+# ------------------------------------------ #
+__AUTHOR__ = "ToorajJahangiri"
+__EMAIL__ = "Toorajjahangiri@gmail.com"
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< #
 
 """
 Nested Cipher b64:
@@ -16,9 +19,55 @@ Nested Cipher b64:
 
 # IMPORTS
 from base64 import urlsafe_b64encode, urlsafe_b64decode
-from typing import Union
+from functools import lru_cache
+
+
+__all__ = (
+    'METHODS_NAMES',
+    'b64_encode',
+    'b64_decode',
+    'ab64_encode',
+    'ab64_decode',
+    'mb64_encode',
+    'mb64_decode',
+    'eb64_encode',
+    'eb64_decode',
+    'lb64_encode',
+    'lb64_decode',
+    'rb64_encode',
+    'rb64_decode',
+    'rab64_encode',
+    'rab64_decode',
+    'rmb64_encode',
+    'rmb64_decode',
+    'reb64_encode',
+    'reb64_decode',
+    'rlb64_encode',
+    'rlb64_decode',
+    )
+
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\^////////////////////////////// #
+
+"""
+Changed: 
+    1 - fix bug `reb64` same with `rlb64` now bug is fixed.
+    2 - add `lru cache` must be some faster for big file.
+"""
+
+def _hook_name() -> list[str]:
+    names = []
+    for method in __all__:
+        if method.endswith('encode'):
+            names.append(method.split('_')[0])
+        else:
+            continue
+    return names
+
+# ALL NAMES
+METHODS_NAMES = _hook_name()
 
 # BASE 64 URL SAFE ENCODER
+@lru_cache()
 def b64_encode(data: bytes) -> bytes:
     """[Base64 urlsafe Standard Encoder]
 
@@ -31,11 +80,12 @@ def b64_encode(data: bytes) -> bytes:
     return urlsafe_b64encode(data)
 
 # BASE 64 URL SAFE ENCODER
-def b64_decode(data: Union[str, bytes]) -> bytes:
+@lru_cache()
+def b64_decode(data: str | bytes) -> bytes:
     """[Base64 urlsafe Standard Decoder]
 
     Args:
-        data (Union[str, bytes]): [Input Base64 Encoded Data]
+        data (str | bytes): [Input Base64 Encoded Data]
 
     Returns:
         bytes: [Decoded Data]
@@ -284,7 +334,7 @@ def rlb64_encode(data: bytes) -> bytes:
     Returns:
         bytes: [Urlsafe base 64]
     """
-    return eb64_encode(rb64_encode(data))
+    return eb64_encode(lb64_encode(data))
 
 # REVERSE LONG BASE 64 DECODER
 def rlb64_decode(data: bytes) -> bytes:
@@ -296,9 +346,12 @@ def rlb64_decode(data: bytes) -> bytes:
     Returns:
         bytes: [Source Data]
     """
-    return rb64_decode(eb64_decode(data))
+    return lb64_decode(eb64_decode(data))
 
-__all__ = (
+__dir__ = (
+    'METHODS_NAMES',
+    'b64_encode',
+    'b64_decode',
     'ab64_encode',
     'ab64_decode',
     'mb64_encode',
