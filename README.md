@@ -40,6 +40,8 @@ pip install nested_cipher
 
 **_methods_ :** b64, ab64, mb64, eb64, lb64, rb64, rab64, rmb64, reb64, rlb64
 
+**NOTE :** This Application __ISSUE__ With __BIG FILE__ For Big File Use Library and Handling File by your own. until Fixed this badly issue.
+
 > **Positional**
 >
 > > **input :** Input data or File path
@@ -64,14 +66,18 @@ pip install nested_cipher
 
 > **Import :**
 >
+> change in `v0.4` see `changes.md`
+>
 > ```python
-> import nested_cipher
+> import nested_cipher.b64
 > ```
 >
 > **or**
 >
+> change in `v0.4` see `changes.md`
+>
 > ```python
-> from nested_cipher import b64_encode, b64_decode
+> from nested_cipher.b64 import b64_encode, b64_decode
 > ```
 
 > **Encode :**
@@ -134,10 +140,9 @@ pip install nested_cipher
 > > py main.py ./test.txt -m de -M b64 -T f -O ./test.t
 > ```
 >
-> 
 
 ---
 
 author: **Tooraj Jahangiri**
-version: **0.3**
+version: **0.4**
 
