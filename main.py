@@ -1,7 +1,10 @@
-###########################################
-__author__ = "ToorajJahangiri"
-__email__ = "Toorajjahangiri@gmail.com"
-###########################################
+from __future__ import annotations
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+#           < IN THE NAME OF GOD >           #
+# ------------------------------------------ #
+__AUTHOR__ = "ToorajJahangiri"
+__EMAIL__ = "Toorajjahangiri@gmail.com"
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< #
 
 """
 Application Nested Cipher
@@ -12,7 +15,11 @@ import sys
 import time
 import argparse
 from typing import Callable
-from nested_cipher import *
+from nested_cipher.b64 import *
+
+
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\^////////////////////////////// #
+
 
 # ALL METHOD CIPHER SUPPORT
 __methods = ('b64','ab64','mb64','eb64','lb64','rb64','rab64','rmb64','reb64','rlb64')
@@ -22,7 +29,9 @@ def exe(data: bytes, method: Callable) -> bytes:
     return method(data)
 
 # MAIN APPLICATION RUN
-def main(*argv) -> int:
+# FIXME: Big File Is Problem
+def main(argv = None) -> int:
+    argv = sys.argv if argv is None else argv
     # CREATE PARSER
     parser = argparse.ArgumentParser(prog='Nested Cipher', description='Simple Cipher Use UrlSafe Base 64')
 
@@ -70,4 +79,4 @@ def main(*argv) -> int:
 
 
 if __name__ == '__main__':
-    exit(main(*sys.argv))
+    raise SystemExit(main(sys.argv))
